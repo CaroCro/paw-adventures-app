@@ -1,23 +1,70 @@
-import React from "react";
-import logo from "../images/logo.svg";
-import { socialLinks } from "../data";
-import PageLinks from "./PageLinks";
-import SocialLink from "./SocialLink";
+import React, { useEffect, useState } from "react";
+import { pageLinks, socialLinks } from "../data";
 
-const NavBar = () => {
+const Navbar = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrolled ? "navbar-scrolled" : ""}`}>
       <div className="nav-center">
         <div className="nav-header">
-          <img src={logo} className="nav-logo" alt="backroads" />
-          <button type="button" className="nav-toggle" id="nav-toggle">
+          <h3 className="nav-logo-text">PawAdventures</h3>
+
+          <button
+            type="button"
+            className="nav-toggle"
+            onClick={() => setIsNavOpen(!isNavOpen)}
+            aria-label="Toggle navigation"
+          >
             <i className="fas fa-bars"></i>
           </button>
         </div>
-        <PageLinks parentClass="nav-links" itemClass="nav-link" />
+
+        <ul className={isNavOpen ? "nav-links show-links" : "nav-links"}>
+          {pageLinks.map((link) => {
+            const { id, href, text } = link;
+            return (
+              <li key={id}>
+                <a
+                  href={href}
+                  className="nav-link"
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  {text}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
         <ul className="nav-icons">
           {socialLinks.map((link) => {
-            return <SocialLink key={link.id} {...link} itemClass="nav-icon" />;
+            const { id, href, icon } = link;
+            return (
+              <li key={id}>
+                <a
+                  href={href}
+                  className="nav-icon"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className={icon}></i>
+                </a>
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -25,4 +72,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;

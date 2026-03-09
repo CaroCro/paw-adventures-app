@@ -19,8 +19,8 @@ const About = () => {
             watching, exploring lush reserves, or spotting unique species, every
             adventure is crafted with love and respect for the environment.
           </p>
-          <a href="#about" className="btn">
-            read more
+          <a href="#tours" className="btn">
+            View tours
           </a>
         </article>
       </div>

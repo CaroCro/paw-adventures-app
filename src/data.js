@@ -7,6 +7,7 @@ export const pageLinks = [
   { id: 2, href: "#about", text: "about" },
   { id: 3, href: "#services", text: "services" },
   { id: 4, href: "#tours", text: "tours" },
+  { id: 5, href: "#booking", text: "booking" },
 ];
 
 export const socialLinks = [
@@ -46,6 +47,15 @@ export const tours = [
     location: "Tanzania",
     duration: "7",
     cost: "2500",
+    groupSize: "Up to 12 travelers",
+    difficulty: "Moderate",
+    highlights: [
+      "Game drives through the Serengeti",
+      "Sunrise wildlife photography",
+      "Experienced local safari guides",
+    ],
+    description:
+      "This immersive safari experience is designed for travelers who want to witness Africa’s most iconic wildlife up close. Enjoy guided game drives, comfortable accommodation, and unforgettable landscapes across one of the world’s most famous national parks.",
   },
   {
     id: 2,
@@ -56,6 +66,15 @@ export const tours = [
     location: "Ecuador",
     duration: "10",
     cost: "3000",
+    groupSize: "Up to 10 travelers",
+    difficulty: "Easy to Moderate",
+    highlights: [
+      "Island-hopping adventure",
+      "Snorkeling with marine wildlife",
+      "Expert naturalist-led tours",
+    ],
+    description:
+      "Experience the extraordinary biodiversity of the Galapagos Islands on a guided journey through volcanic landscapes, pristine beaches, and protected reserves. This tour combines exploration, wildlife encounters, and educational experiences in one unforgettable itinerary.",
   },
   {
     id: 3,
@@ -66,5 +85,14 @@ export const tours = [
     location: "Australia",
     duration: "5",
     cost: "1800",
+    groupSize: "Up to 15 travelers",
+    difficulty: "Easy",
+    highlights: [
+      "Guided whale watching cruises",
+      "Coastal sightseeing",
+      "Marine wildlife education sessions",
+    ],
+    description:
+      "Set sail on a coastal wildlife adventure focused on one of nature’s most spectacular experiences: whale watching. This tour is ideal for ocean lovers looking to combine relaxation, scenic views, and meaningful encounters with marine life.",
   },
 ];
